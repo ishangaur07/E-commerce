@@ -1,0 +1,11 @@
+.home_container{
+    background-image: url(https://storage.googleapis.com/pai-images/77924a14acb24f70bbf0924de661c552.jpeg);
+    width: 100%;
+    height: 700px;
+    z-index: -1;
+    background-repeat: no-repeat;
+    margin-bottom: -150px;
+    background-position: center;
+    background-size: cover;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
