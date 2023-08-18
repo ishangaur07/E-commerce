@@ -1,18 +1,19 @@
 import React from 'react'
 import "./Checkout.css";
-import bgImage from "./background-checkout.jpg";
+import Subtotal from './Subtotal';
 function Checkout() {
   return (
     <div className='checkout'>
       <div className='checkout_left'>
-        <img 
-        className='checkout_ad' 
-        src={bgImage} 
-        alt="" />
         <div>
         <h2 className='checkout_title'>
             Your Shopping basket
+            {/* Basket Item */}
         </h2>
+      </div>
+      <div className='checkout_right'>
+        <h2> The subtotal will go here</h2>
+        <Subtotal></Subtotal>
       </div>
       </div>
       
