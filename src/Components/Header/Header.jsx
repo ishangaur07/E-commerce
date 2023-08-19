@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import classes from './Header.module.css';
 import logo from './amazon.png';
 import SearchIcon from '@mui/icons-material/Search';
@@ -6,9 +6,7 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../StateProvider/StateProvider';
 function Header() {
-  const [{ basket },dispatch] = useStateValue();
- 
-  
+  const [{ basket, user }, dispatch] = useStateValue();
   return (
     <div className={classes.header}>
      <Link to="/"><img className={classes.headerLogo} srcSet={logo} alt='about'></img></Link>
@@ -47,7 +45,10 @@ function Header() {
         <div className={classes.header_optionBasket}>
           <ShoppingBasketIcon></ShoppingBasketIcon>
           <span 
-          className="header_optionLineTwo header_basketCount">{basket?.length}</span>
+          className="header_optionLineTwo header_basketCount"
+          >
+            {basket?.length}
+            </span>
         </div>
         </Link>
       </div>
