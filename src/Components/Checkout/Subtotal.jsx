@@ -1,14 +1,16 @@
 import React from 'react'
-
 import "./Subtotal.css";
+import {useStateValue} from "../StateProvider/StateProvider";
+import { getBasketTotal } from '../StateProvider/Reducer';
 function Subtotal() {
+  const [{basket},dispatch] = useStateValue();
   return (
     <div className='substotal'>
       <div className="checkMessage">
-       ✔ Your Order is eligible for Free Delivery. Select this option at checkout. Details
+       ✅ Your Order is eligible for Free Delivery. Select this option at checkout. Details
       </div>
       <div className="totalPrice">
-        Subtotal (2 Items): $991.03
+       <p> Subtotal ({basket.length} Items): <strong>{getBasketTotal(basket)}</strong></p>
         
       </div>
       <div className="checkbox">
