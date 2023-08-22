@@ -1,7 +1,6 @@
 import React from 'react'
 import './CheckoutProduct.css';
 import {useStateValue} from "../StateProvider/StateProvider";
-import Header from '../Header/Header';
 function CheckoutProduct({ id, image, title, price, rating }) {
     const [{basket},dispatch] = useStateValue();
     
@@ -13,9 +12,7 @@ function CheckoutProduct({ id, image, title, price, rating }) {
     }
     
     return (
-        <>
-         <Header></Header>
-         <div className='checkoutProduct'>
+        <div className='checkoutProduct'>
             <img className='checkoutProduct__image' src={image} alt="" />
             <div className="checkoutProduct_info">
                 <p className='checkoutProduct_title'>{title}</p>
@@ -33,8 +30,6 @@ function CheckoutProduct({ id, image, title, price, rating }) {
                 <button  onClick={removeFromBasket}>Remove the basket</button>
             </div>
         </div>
-        </>
-       
     )
 }
 
