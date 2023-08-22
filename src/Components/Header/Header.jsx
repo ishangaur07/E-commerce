@@ -15,6 +15,7 @@ function Header() {
       <SearchIcon className={classes.headerSeachIcon}></SearchIcon>
       </div>
       <div className={classes.header_nav}>
+        <Link to="/login">
         <div className={classes.header_option}>
           <span className={classes.header_optionLineOne}>
               Hello Guest
@@ -23,6 +24,7 @@ function Header() {
               Sign In
           </span>
         </div>
+        </Link>
 
         <div className={classes.header_option}>
           <span className={classes.header_optionLineOne}>

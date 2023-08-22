@@ -1,16 +1,16 @@
 import './App.css';
 import Home from './Components/Home/Home';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import RouteLayout from './Components/UI/RootLayout';
 import Checkout from './Components/Checkout/Checkout';
+import Header from './Components/Header/Header';
 
 const routes = createBrowserRouter([
   {
     path:"/",
-    element:<RouteLayout></RouteLayout>,
     children:[
-      {path:"/",element:<Home></Home>},
-      {path:"/checkout",element:<Checkout></Checkout>}
+      {path:"/",element:[<Header/>,<Home></Home>]},
+      {path:"/checkout",element:[<Header></Header>,<Checkout></Checkout>]},
+      {path:"/login", element:<h1>Hello login</h1>}
     ]
   }
 ])
