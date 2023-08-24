@@ -1,22 +1,47 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import "./Login.css"
+import firebase from "../../Firebase";
+
 function Login() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const navigate = useNavigate();
+
     const emailGet = (event)=>{
        return setEmail(event.target.value);
     }
 
-    const signIn = (e)=>{
+    const signIn =  async(e)=>{
         e.preventDefault();
         console.log("you clicked signin");
         // Some fancy firebase login
+        try{
+            await firebase.auth().signInWithEmailAndPassword(email,password).then((auth)=>{
+                console.log(auth);
+                navigate("/checkout");
+            })
+        }catch(error){
+            console.log(error.message);
+        }
     }
 
-    const register = (e)=>{
+    const register = async (e)=>{
         e.preventDefault();
         console.log("you clicked to create");
+        
+        try {
+            await firebase.auth().createUserWithEmailAndPassword(email, password).then((auth)=>{
+                console.log(auth);
+                if(auth){
+                    navigate("/")
+                }
+            });
+            console.log('User registered successfully');
+          } catch (error) {
+            console.error('Error during signup:', error.message);
+          }
+        
     }
     return (
         <div className='login'>
