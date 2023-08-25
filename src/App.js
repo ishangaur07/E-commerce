@@ -4,6 +4,9 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Checkout from './Components/Checkout/Checkout';
 import Header from './Components/Header/Header';
 import Login from "./Components/Login/Login"
+import { useEffect } from 'react';
+import { auth } from './Firebase'; 
+import { useStateValue } from './Components/StateProvider/StateProvider';
 
 const routes = createBrowserRouter([
   {
@@ -18,6 +21,27 @@ const routes = createBrowserRouter([
 
 
 function App() {
+  const [{},dispatch] = useStateValue();
+  useEffect(()=>{
+    // Will  only run once
+  auth.onAuthStateChanged(authUser=>{
+    console.log("The user is>>>", authUser);
+
+    if(authUser){
+      // The user just logged in 
+      dispatch({
+        type:"SET_USER",
+        user:authUser
+      })
+    }else{
+      // the user is logged out
+      dispatch({
+        type:'SET_USER',
+        user:null
+      })
+    }
+    })
+  },[])
   return (
   <RouterProvider router={routes}></RouterProvider>
 
