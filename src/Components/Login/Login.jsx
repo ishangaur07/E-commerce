@@ -12,7 +12,7 @@ function Login() {
        return setEmail(event.target.value);
     }
 
-    const signIn =  async(e)=>{
+    const signIn =  async(e)=>{ 
         e.preventDefault();
         console.log("you clicked signin");
         // Some fancy firebase login

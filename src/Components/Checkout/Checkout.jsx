@@ -9,8 +9,9 @@ function Checkout() {
     <div className='checkout'>
       <div className='checkout_left'>
         <div className='shoppingBasket'> 
+        <h6></h6>
         <h2 className='checkout_title'>
-          <h6>{user.email}</h6>
+            {user?.email}<br></br>
             Your Shopping basket
             {basket.map(item=>(
               <CheckoutProduct

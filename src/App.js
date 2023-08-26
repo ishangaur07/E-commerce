@@ -7,6 +7,7 @@ import Login from "./Components/Login/Login"
 import { useEffect } from 'react';
 import { auth } from './Firebase'; 
 import { useStateValue } from './Components/StateProvider/StateProvider';
+import Payment from './Components/Payment/Payment';
 
 const routes = createBrowserRouter([
   {
@@ -14,7 +15,8 @@ const routes = createBrowserRouter([
     children:[
       {path:"/",element:[<Header/>,<Home></Home>]},
       {path:"/checkout",element:[<Header></Header>,<Checkout></Checkout>]},
-      {path:"/login", element:<Login></Login>}
+      {path:"/login", element:<Login></Login>},
+      {path:"/payment", element:<Payment></Payment>}
     ]
   }
 ])
