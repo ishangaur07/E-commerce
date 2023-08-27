@@ -8,6 +8,11 @@ import { useEffect } from 'react';
 import { auth } from './Firebase'; 
 import { useStateValue } from './Components/StateProvider/StateProvider';
 import Payment from './Components/Payment/Payment';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import Orders from "./Components/Orders/OrdersMy";
+
+const promise = loadStripe('pk_test_51NjZQzSBvPEKr6NEyngjCnxgCO2q6ZOw9a1OWUqmkUjl0VW4p6tZ2ljDU4DLdPtEOTCA4M9W6Y6UsY1QaBZjFclx00D4THHD5q');
 
 const routes = createBrowserRouter([
   {
@@ -16,7 +21,8 @@ const routes = createBrowserRouter([
       {path:"/",element:[<Header/>,<Home></Home>]},
       {path:"/checkout",element:[<Header></Header>,<Checkout></Checkout>]},
       {path:"/login", element:<Login></Login>},
-      {path:"/payment", element:<Payment></Payment>}
+      {path:"/orders", element:<Orders/>},
+      {path:"/payment", element:[<Elements stripe={promise}><Payment/></Elements>]}
     ]
   }
 ])
@@ -46,7 +52,6 @@ function App() {
   },[])
   return (
   <RouterProvider router={routes}></RouterProvider>
-
   )
 }
 

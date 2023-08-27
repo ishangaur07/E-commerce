@@ -1,6 +1,8 @@
 import React from 'react'
 import "./Checkout.css";
 import Subtotal from './Subtotal';
+import { getBasketTotal } from '../StateProvider/Reducer';
+
 import { useStateValue } from '../StateProvider/StateProvider';
 import CheckoutProduct from './CheckoutProduct';
 function Checkout() {
@@ -9,7 +11,6 @@ function Checkout() {
     <div className='checkout'>
       <div className='checkout_left'>
         <div className='shoppingBasket'> 
-        <h6></h6>
         <h2 className='checkout_title'>
             {user?.email}<br></br>
             Your Shopping basket
