@@ -17,8 +17,20 @@ app.post("/payments/create", async (request, response) => {
 
   try {
     const paymentIntent = await stripe.paymentIntents.create({
+      description: 'Software development services',
       amount: total, // Subunits of the currency
+      shipping: {
+        name: 'Ishan',
+        address: {
+          line1: '510 Townsend St',
+          postal_code: '98140',
+          city: 'San Francisco',
+          state: 'CA',
+          country: 'US',
+        },
+      },
       currency: "usd",
+      payment_method_types: ['card'],
     });
 
     response.status(201).send({

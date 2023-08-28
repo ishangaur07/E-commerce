@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import firebase from "firebase/compat/app";
 import 'firebase/compat/auth';
-
+import "firebase/compat/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyC5MGbQrwgOpjiT0GPjKrvn7MMmwscHiHs",
   authDomain: "e-commerce-app-49d5d.firebaseapp.com",
@@ -12,6 +12,8 @@ const firebaseConfig = {
   measurementId: "G-V2M8HVE1MH"
 };
 
-firebase.initializeApp(firebaseConfig);
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth(); // Export auth instance
+export const db = firebaseApp.firestore();
 export default firebase;

@@ -10,7 +10,7 @@ import { useStateValue } from './Components/StateProvider/StateProvider';
 import Payment from './Components/Payment/Payment';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import Orders from "./Components/Orders/OrdersMy";
+import Orders from "./Components/Orders/Orders";
 
 const promise = loadStripe('pk_test_51NjZQzSBvPEKr6NEyngjCnxgCO2q6ZOw9a1OWUqmkUjl0VW4p6tZ2ljDU4DLdPtEOTCA4M9W6Y6UsY1QaBZjFclx00D4THHD5q');
 
@@ -21,7 +21,7 @@ const routes = createBrowserRouter([
       {path:"/",element:[<Header/>,<Home></Home>]},
       {path:"/checkout",element:[<Header></Header>,<Checkout></Checkout>]},
       {path:"/login", element:<Login></Login>},
-      {path:"/orders", element:<Orders/>},
+      {path:"/orders", element:<Orders></Orders>},
       {path:"/payment", element:[<Elements stripe={promise}><Payment/></Elements>]}
     ]
   }
